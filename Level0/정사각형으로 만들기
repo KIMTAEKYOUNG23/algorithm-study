@@ -1,0 +1,24 @@
+#include <string>
+#include <vector>
+using namespace std;
+
+vector<vector<int>> solution(vector<vector<int>> arr) {
+    int rows = arr.size();
+    int cols = arr[0].size();
+    
+    if(rows > cols){
+        // 행이 더 많음 → 각 행 끝에 0 추가해서 열 수를 행 수에 맞춤
+        for(int i=0; i<rows; i++){
+            for(int j=cols; j<rows; j++){
+                arr[i].push_back(0);
+            }
+        }
+    } else if(cols > rows){
+        // 열이 더 많음 → 새 행 추가해서 행 수를 열 수에 맞춤
+        for(int i=rows; i<cols; i++){
+            arr.push_back(vector<int>(cols, 0));
+        }
+    }
+    
+    return arr;
+}
