@@ -1,0 +1,25 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int solution(vector<int> rank, vector<bool> attendance) {
+    
+    // (등수, 학생번호) 쌍으로 저장
+    vector<pair<int,int>> temp;
+    
+    for(int i=0; i<attendance.size(); i++){
+        if(attendance[i]){
+            temp.push_back({rank[i], i});
+        }
+    }
+    
+    // 등수 기준 오름차순 정렬 (1등이 앞으로)
+    sort(temp.begin(), temp.end());
+    
+    int a = temp[0].second;   // 1등 학생번호
+    int b = temp[1].second;   // 2등 학생번호
+    int c = temp[2].second;   // 3등 학생번호
+    
+    return 10000*a + 100*b + c;
+}
