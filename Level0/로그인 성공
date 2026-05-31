@@ -16,3 +16,5 @@ string solution(vector<string> id_pw, vector<vector<string>> db) {
     }
     return answer;
 }
+
+//for을 auto로 축약, if문은 find로 축약
