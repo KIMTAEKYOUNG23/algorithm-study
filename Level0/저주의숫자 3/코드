@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(int n) {
+    int count = 0, num = 0;
+    while (count < n) {
+        num++;
+        int t = num;
+        bool valid = (num % 3 != 0);
+        while (valid && t > 0) {
+            if (t % 10 == 3) valid = false;
+            t /= 10;
+        }
+        if (valid) count++;
+    }
+    int result = num;
+    return result;
+}
