@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(int chicken) 
+{
+    return (int)chicken*0.1111111;
+}
+//매우 기발하다고 생각하며 연산속도가 비약적으로상승, 단 수의 범위가 정해져 있지 않은경우 사용 불가
