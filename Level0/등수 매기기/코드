@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+// score_rows는 2차원 배열 score의 행 길이, score_cols는 2차원 배열 score의 열 길이입니다.
+int* solution(int** score, size_t score_rows, size_t score_cols) {
+     // return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
+    int* answer = (int*)malloc(score_rows * sizeof(int));
+    int* avg = (int*)malloc(score_rows * sizeof(int));
+
+    for(int i=0; i<score_rows; i++){
+        avg[i] = (score[i][0] + score[i][1]);
+    }
+
+    for(int i=0; i<score_rows; i++){
+        answer[i] = 1;
+        for(int j=0; j<score_rows; j++){
+            if(avg[j] > avg[i]) answer[i]++;
+        }
+    }
+    free(avg);
+    return answer;
+}
+// 이중 포인터 배열을 사용하였으며 동적 할당을 통해 사용자 파라미터 값이 변경된 상황에도 맞추어 변형
+// 평균값을 구해 계산하는 문제였으나 2과목의 합을 통해 순위가 결정되는건 변하지 않기에 따로 double을 사용하지 않고 int로 합을 계산해 부동소수점 오차 방지
