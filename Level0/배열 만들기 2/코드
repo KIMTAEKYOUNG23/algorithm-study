@@ -1,0 +1,58 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(int l, int r) {
+    vector<int> answer;
+   while(l<=r){
+        int n=l;
+        while(n>0){
+            int digit = n%10;
+            if(digit%5==0){
+                if(n<10){
+                    answer.push_back(l);
+                    break;
+                }
+                else {n/=10; continue;}
+            }
+            else break;
+        }
+        l++;
+    }
+    if(answer.empty()){
+        answer.push_back(-1);
+    } 
+    return answer;
+}
+// 각 자리수 마다 10으로 쪼개가며 검사 후 벡터 배열에 밀어넣음
+/*#include <string>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+vector<int> solution(int l, int r) {
+    vector<int> answer;
+    queue<int> q;
+
+    q.push(5);
+    while (!q.empty()) {
+        int n = q.front();
+        q.pop();
+
+        if(n > r) continue;
+        if(n >= l) {
+            answer.push_back(n);
+        }
+
+        q.push(n * 10);
+        q.push(n * 10 + 5);
+    }
+
+    if (answer.empty()) {
+        answer.push_back(-1);
+    }
+    return answer;
+}+/
+// 큐를 이용한 선입선출방식으로 5와0으로 이뤄진 부분체크 후 l,r 사이들어가는지 확인
