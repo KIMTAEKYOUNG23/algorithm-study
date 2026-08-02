@@ -19,3 +19,4 @@ vector<string> solution(vector<int> numbers, vector<int> our_score, vector<int> 
     return answer;
 }
 // 벡터 사용하여 힙에 배열을 저장하며 유동적인 데이터 사용 가능
+//!numbers.empty()&& our_score[i] == score_list[numbers[i]-1 -----> 이의신청학생 공백 여부 확인
